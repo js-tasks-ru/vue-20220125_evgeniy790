@@ -31,18 +31,18 @@
     <div id="app" class="container">
       <div class="row">
         <div class="col">
-          <input type="number" @change="CalcX = parseInt($event.target.value),CalculateGeneral()" :value="CalcX" />
+          <input type="number" v-model.lazy="CalcX" />
         </div>
 
         <div class="col" style="display: flex; flex-direction: column; font-family: emoji">
-          <label><input type="radio" name="type-operand" v-model="Operand" @click="CalculateGeneral('sum')" value="sum" /> ➕</label>
-          <label><input type="radio" name="type-operand" v-model="Operand" @click="CalculateGeneral('subtract')" value="subtract" /> ➖</label>
-          <label><input type="radio" name="type-operand" v-model="Operand" @click="CalculateGeneral('multiply')" value="multiply" /> ✖</label>
-          <label><input type="radio" name="type-operand" v-model="Operand" @click="CalculateGeneral('divide')" value="divide" /> ➗</label>
+          <label><input type="radio" name="type-operand" v-model="Operand" value="sum" /> ➕</label>
+          <label><input type="radio" name="type-operand" v-model="Operand" value="subtract" /> ➖</label>
+          <label><input type="radio" name="type-operand" v-model="Operand" value="multiply" /> ✖</label>
+          <label><input type="radio" name="type-operand" v-model="Operand" value="divide" /> ➗</label>
         </div>
 
         <div class="col">
-          <input type="number" @change="CalcY = parseInt($event.target.value),CalculateGeneral()" :value="CalcY"  />
+          <input type="number" v-model.lazy="CalcY" />
         </div>
 
         <div class="col">=</div>

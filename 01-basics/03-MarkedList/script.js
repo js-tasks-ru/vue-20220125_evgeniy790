@@ -32,7 +32,7 @@ const emails = [
 const vb = createApp({
   data() {
     return {
-      emails: [],
+      emails: emails,
       searchString: '',
     };
   },
@@ -40,21 +40,21 @@ const vb = createApp({
   computed: {
     markedEmails() {
       let isNotEmptySearch = this.searchString.length > 0;
+      let markEmail = [];
       for (let oneEmail of this.emails) {
-        oneEmail.mark = isNotEmptySearch && oneEmail.email.toLowerCase().includes(this.searchString.toLowerCase());
+        let isMark = isNotEmptySearch && oneEmail.toLowerCase().includes(this.searchString.toLowerCase());
+        markEmail.push({
+          email: oneEmail,
+          mark: isMark,
+        });
       }
-      return this.emails;
+      return markEmail;
     },
   },
 
-  mounted() {
-    for (let oneEmail of emails) {
-      this.emails.push({
-        email: oneEmail,
-        mark: false,
-      });
-    }
-  },
+  // created() {
+  //   this.emails = emails;
+  // },
 }).mount('#app');
 
 // Требуется создать Vue приложение

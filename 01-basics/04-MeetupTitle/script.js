@@ -25,12 +25,7 @@ const vm = createApp({
 
   watch: {
     NumberMeetup() {
-      // let meetupJSON = fetchMeetupById(this.NumberMeetup);
-      // console.log(meetupJSON);
-      // let meetupObj = JSON.parse(meetupJSON);
-      // console.log(meetupObj);
-      // this.MEETUP_TITLE = meetupObj.title;
-      fetchMeetupById(this.NumberMeetup).then( response => {
+      fetchMeetupById(this.NumberMeetup).then((response) => {
         this.MEETUP_TITLE = response.title;
       });
     },

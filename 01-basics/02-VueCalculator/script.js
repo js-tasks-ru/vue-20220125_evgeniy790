@@ -6,28 +6,29 @@ const vm = createApp({
     return {
       CalcX: 1,
       CalcY: 1,
-      CalcZ: 2,
+      //CalcZ: 2,
       Operand: 'sum',
     };
   },
 
-  methods: {
-    CalculateGeneral(Operand) {
-      if (Operand == undefined) Operand = this.Operand;
-      switch (Operand) {
+  computed: {
+    CalcZ() {
+      let res;
+      switch (this.Operand) {
         case 'sum':
-          this.CalcZ = this.CalcX + this.CalcY;
+          res = this.CalcX + this.CalcY;
           break;
         case 'subtract':
-          this.CalcZ = this.CalcX - this.CalcY;
+          res = this.CalcX - this.CalcY;
           break;
         case 'multiply':
-          this.CalcZ = this.CalcX * this.CalcY;
+          res = this.CalcX * this.CalcY;
           break;
         case 'divide':
-          this.CalcZ = this.CalcY == 0 ? 0 : this.CalcX / this.CalcY;
+          res = this.CalcY == 0 ? 0 : this.CalcX / this.CalcY;
           break;
       }
+      return res;
     },
   },
 }).mount('#app');
